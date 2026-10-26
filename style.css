@@ -1,0 +1,533 @@
+/* ===== 1. CORE & GLOBAL STYLES ===== */
+*{box-sizing:border-box}
+:root{--cream:#f4eee2;--cream2:#e9e7d7;--green:#344b32;--green2:#526548;--ink:#30382a;--muted:#6e7162;--line:#d5d0c2}
+html{scroll-behavior:smooth;scroll-padding-top:80px}
+body{margin:0;background:var(--cream);color:var(--ink);font-family:"DM Sans",sans-serif;font-size:14px;line-height:1.65}
+img{display:block;max-width:100%}
+a{color:inherit;text-decoration:none}
+button,input,select,textarea{font:inherit}
+h1,h2,h3,p{margin-top:0}
+h1,h2{font-family:"Playfair Display",serif;font-weight:500;line-height:1.18}
+.eyebrow{font-size:11px;letter-spacing:2px;font-weight:600;margin:0 0 12px}
+.handwritten{font:italic 17px/1.5 "Playfair Display",serif}
+.section-pad{padding:76px 7%}
+
+/* ===== 2. SITE HEADER ===== */
+.site-header{height:76px;padding:0 5.5%;display:flex;align-items:center;justify-content:space-between;gap:24px;background:#f6f0e5;position:sticky;top:0;z-index:20;border-bottom:1px solid rgba(62,69,49,.12)}
+.brand{display:flex;align-items:center;gap:10px;flex-shrink:0}
+.brand strong{display:block;font:500 29px/1 "Playfair Display",serif;letter-spacing:1px}
+.brand small{display:block;font:italic 10px/1.7 "Playfair Display",serif;color:#777568}
+.brand-leaf{font-size:36px;color:var(--green);transform:rotate(-22deg)}
+.main-nav{display:flex;align-items:center;gap:clamp(14px,3vw,42px);font-size:12px}
+.main-nav a{padding:10px 0;position:relative}
+.main-nav a:after{content:"";position:absolute;bottom:3px;left:0;width:0;height:1px;background:var(--green);transition:.25s}
+.main-nav a:hover:after,.main-nav a.active:after{width:100%}
+.header-note{font:italic 12px/1.1 "Playfair Display",serif;text-align:center;transform:rotate(-7deg)}
+.site-header .bag-icon{display:flex;align-items:center;justify-content:center;width:34px;height:40px;color:#35432f;text-decoration:none;flex-shrink:0}
+.site-header .bag-svg{display:block;width:25px;height:29px;overflow:visible;transition:transform 0.2s ease}
+.site-header .bag-icon:hover{opacity:0.65}
+.site-header .bag-icon:hover .bag-svg{transform:translateY(-2px)}
+.menu-toggle{display:none;border:0;background:none;font-size:25px;color:var(--green)}
+
+/* ===== 3. HERO SECTION ===== */
+.hero{min-height:530px;position:relative;display:flex;align-items:center;overflow:hidden;background:#d8cfb8}
+.hero-photo,.hero-shade{position:absolute;inset:0}
+.hero-photo {
+    background-image: url("images/hero-tag.jpg");
+    background-size: cover;
+    background-position: center 60%;
+    background-repeat: no-repeat;
+}
+.hero-shade{background:linear-gradient(90deg,rgba(244,238,226,.97) 0%,rgba(244,238,226,.91) 32%,rgba(244,238,226,.28) 58%,rgba(35,35,20,.05) 100%)}
+.hero-content{position:relative;z-index:1;width:min(650px,58%);margin-left:9.5%;padding:60px 0 45px}
+h1{font-size:clamp(34px,4.1vw,58px);margin:0 0 15px;letter-spacing:-.8px}
+h1 span{font-size:.72em}
+.hero-copy{max-width:410px;color:#57594d;font-size:13px;line-height:1.8;margin-bottom:23px}
+.button{display:inline-flex;align-items:center;gap:20px;background:var(--green);color:#fffdf5;border:1px solid var(--green);padding:12px 22px;border-radius:28px;font-size:12px;transition:.25s;cursor:pointer}
+.button:hover{background:#526b47;transform:translateY(-2px)}
+.button span{font-size:17px;line-height:1}
+.button-small{padding:9px 19px;font-size:11px;margin-top:10px}
+
+/* Đã sửa lỗi căn lề icon bất chấp thẻ img, svg hay i */
+.hero-values {
+    display: flex;
+    align-items: flex-start;
+    gap: 28px;
+    margin-top: 30px;
+}
+.hero-values > div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    text-align: center;
+    min-width: 80px; 
+}
+.hero-values > div > :first-child {
+    width: 32px !important;
+    height: 32px !important;
+    margin-bottom: 10px !important;
+    object-fit: contain;
+    color: #35432f;
+    display: flex !important;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+/* Phóng to riêng icon đầu tiên để cân đối với 2 icon còn lại */
+.hero-values > div:first-child > :first-child {
+    transform: scale(1.45);
+}
+
+.hero-values small {
+    font-size: 11px;
+    line-height: 1.4;
+    color: #35432f;
+    margin: 0;
+    display: block;
+}
+
+.hero-script{position:absolute;right:8%;top:11%;font:italic 22px/1.4 "Playfair Display",serif;color:#fff8e7;transform:rotate(-8deg);text-shadow:0 1px 10px #53452d}
+
+/* ===== 4. ABOUT SECTION & BENEFIT ICONS ===== */
+.about{display:grid;grid-template-columns:1fr 1.45fr 1.55fr;align-items:center;gap:35px;position:relative}
+.image-frame{position:relative;padding:10px;background:#fffdf6;box-shadow:0 5px 15px #5a4a2b20;transform:rotate(-5deg)}
+.about-image img{width:100%;height:235px;object-fit:cover}
+.tape{position:absolute;width:65px;height:20px;background:#cbbda0aa;top:-10px;left:30%;transform:rotate(-8deg)}
+h2{font-size:clamp(26px,2.6vw,38px);margin:0 0 13px}
+.about-copy p:not(.eyebrow){font-size:12px;color:#68695d;line-height:1.85}
+.about-copy strong{color:#45483c}
+.about-note{position:absolute;right:13%;bottom:14px;transform:rotate(-5deg);color:#77755f}
+
+.about-benefits {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 0;
+    border-left: 1px solid var(--line);
+    padding-left: 12px;
+    align-items: stretch;
+}
+.about-benefits article {
+    min-width: 0;
+    text-align: center;
+    padding: 0 8px;
+    border-right: 1px solid var(--line);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.about-benefits article:last-child {
+    border-right: none;
+}
+.about-benefits .icon-circle {
+    width: 80px;
+    height: 80px;
+    margin: 0 auto 14px;
+    border: 2px solid #e5e0d5;
+    border-radius: 50%;
+    background: #f8f5ed;
+    box-shadow: inset 0 0 0 4px #f4efe5;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+.about-benefits .custom-icon,
+.about-benefits .recycle-svg,
+.about-benefits svg {
+    width: 42px !important;
+    height: 42px !important;
+    color: var(--green);
+    display: block;
+    margin: 0 auto;
+}
+.about-benefits .recycle-icon {
+    font-size: 38px !important;
+    line-height: 1 !important;
+    color: var(--green);
+}
+.about-benefits h3 {
+    font-size: 12px;
+    font-weight: 700;
+    line-height: 1.5;
+    color: var(--ink);
+    margin: 0 0 10px;
+}
+.about-benefits p {
+    font-size: 11px;
+    line-height: 1.8;
+    color: var(--muted);
+    margin: 0;
+}
+
+/* ===== 5. PRODUCTS SECTION ===== */
+.products{display:grid;grid-template-columns:1.15fr 1.15fr .78fr;gap:30px;align-items:center;background:#e5e8d8}
+.products-intro h2{font-size:clamp(26px,2.5vw,37px)}
+.products-intro>p:not(.eyebrow){font-size:12px;color:#696d5e;max-width:340px}
+
+.scent-list {
+    display: grid;
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+    gap: 8px;
+    margin: 25px 0 12px;
+}
+.scent {
+    border: 1px solid transparent;
+    background: transparent;
+    padding: 7px 2px 9px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+    border-radius: 10px;
+    cursor: pointer;
+    color: var(--ink);
+    min-width: 0;
+    text-align: center;
+    transition: 0.25s ease;
+}
+.scent:hover, .scent.active {
+    background: rgba(255, 255, 255, 0.5);
+    border-color: #d0d5c4;
+}
+.scent-dot {
+    display: block;
+    width: 43px;
+    height: 43px;
+    border-radius: 50%;
+    border: 3px solid #ffffffb5;
+    box-shadow: 0 2px 7px #3332;
+}
+.scent-image {
+    display: block;
+    width: 43px;
+    height: 43px;
+    margin: 0 auto;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid #f3eee2;
+    box-shadow: 0 2px 7px rgba(50, 60, 40, 0.12);
+}
+.lavender{background:radial-gradient(circle at 30% 30%,#c9b6db,#79618f 70%,#51415d)}
+.orange{background:radial-gradient(circle at 30% 30%,#ffcf60,#ed851d 70%,#b85814)}
+.green{background:radial-gradient(circle at 30% 30%,#a9c28c,#547746 70%,#33492a)}
+.wood{background:radial-gradient(circle at 30% 30%,#cba27a,#795033 70%,#4b3021)}
+.mint{background:radial-gradient(circle at 30% 30%,#b6d49c,#648b4f 70%,#3e6136)}
+
+.scent b{font-size:9px;text-align:center;line-height:1.3}
+.scent small{font-size:9px;color:var(--muted);text-align:center}
+.selected-scent{font-size:10px;color:#777;margin-bottom:4px}
+
+.product-photo{height:330px;position:relative;border-radius:16px;overflow:hidden;box-shadow:0 12px 25px #404a3020}
+.product-photo img{height:100%;width:100%;object-fit:cover}
+.photo-label{position:absolute;right:15px;bottom:15px;background:#f4eee2e8;padding:10px 14px;font:italic 13px "Playfair Display",serif;text-align:center;border-radius:8px}
+
+.product-facts{background:#f6f2e8b8;border-radius:18px;padding:20px 18px}
+.product-facts article{display:flex;align-items:flex-start;gap:13px;padding:12px 0;border-bottom:1px solid #dedccd}
+.product-facts article:last-child{border-bottom:0}
+.product-facts article>span{font-size:27px;color:var(--green);min-width:30px;text-align:center}
+.product-facts h3{font-size:12px;margin:0 0 3px}
+.product-facts p{font-size:10px;color:#77776b;margin:0;line-height:1.55}
+
+/* ===== 6. PROCESS SECTION ===== */
+
+/* ===== 6. PROCESS SECTION ===== */
+.process {
+    display: grid;
+    grid-template-columns: minmax(260px, 0.78fr) minmax(0, 2fr);
+    gap: 35px;
+    align-items: center;
+}
+
+.process-heading {
+    min-width: 0;
+}
+
+.process-content {
+    width: 100%;
+    min-width: 0;
+    margin: 0;
+}
+
+.process-heading h2 {
+    font-size: clamp(28px, 3vw, 42px);
+}
+
+.process-heading > p:not(.eyebrow):not(.handwritten) {
+    font-size: 12px;
+    color: #6b6b5e;
+    line-height: 1.8;
+}
+
+.process-heading .handwritten {
+    margin-top: 28px;
+    transform: rotate(-5deg);
+}
+
+/* Sáu bước */
+.steps {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 0;
+    width: 100%;
+    margin: 0 0 35px;
+}
+
+.steps article {
+    flex: 1 1 0;
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.steps article span {
+    width: 48px;
+    height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: transparent;
+    border: 0;
+    color: #263e30;
+    margin: 0 auto 4px;
+}
+
+.steps article span i {
+    font-size: 25px;
+}
+
+.steps article b {
+    font-size: 18px;
+    color: #263e30;
+    font-weight: 500;
+}
+
+.steps article small {
+    font-size: 12px;
+    line-height: 1.5;
+    color: #66685b;
+    margin-top: 8px;
+    white-space: normal;
+}
+
+.steps > i {
+    flex: 0 0 22px;
+    font-style: normal;
+    font-size: 25px;
+    color: #bdb8a7;
+    margin-top: 64px;
+    text-align: center;
+}
+
+/* Năm ảnh */
+.process-gallery {
+    display: grid;
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+    gap: 12px;
+    width: 100%;
+    min-width: 0;
+    margin: 0;
+}
+
+.process-gallery img {
+    display: block;
+    width: 100%;
+    min-width: 0;
+    height: 130px;
+    object-fit: cover;
+    object-position: center;
+    border-radius: 16px;
+}
+
+
+
+
+
+
+/* ===== 7. ORDER SECTION ===== */
+.order-section{display:grid;grid-template-columns:1fr .8fr 1.65fr;background:var(--green);color:#f6f0e4;min-height:360px}
+.order-photo{position:relative;min-height:360px;overflow:hidden}
+.order-photo img{width:100%;height:100%;position:absolute;inset:0;object-fit:cover}
+.order-photo:after{content:"";position:absolute;inset:0;background:linear-gradient(0deg,#17261575,transparent 70%)}
+.order-photo .handwritten{position:absolute;z-index:1;right:10%;top:10%;transform:rotate(-8deg);text-align:center}
+.order-brand{padding:45px 24px;align-self:center}
+.order-brand h2{font-size:39px;margin-bottom:8px}
+.order-brand>p:not(.eyebrow){font-size:12px;color:#e0e1d4}
+.mini-values{display:flex;justify-content:space-between;gap:9px;margin-top:25px}
+.mini-values span{font-size:23px;text-align:center}
+.mini-values small{display:block;font-size:9px;font-weight:400}
+.order-form{align-self:center;background:#f7f1e7;color:var(--ink);border-radius:14px;margin:25px 5% 25px 0;padding:23px;box-shadow:0 8px 24px #17261520}
+.form-grid{display:grid;grid-template-columns:1fr 1fr;gap:13px 17px}
+.order-form label{font-size:10px;font-weight:600;display:flex;flex-direction:column;gap:5px}
+.order-form input,.order-form select,.order-form textarea{width:100%;border:1px solid #d6d1c4;background:#fbf8f0;border-radius:5px;padding:10px;color:#353b2e;font-size:11px;outline:none}
+.order-form input:focus,.order-form select:focus,.order-form textarea:focus{border-color:var(--green2);box-shadow:0 0 0 2px #52654820}
+.order-form textarea{resize:vertical}
+.full-width{grid-column:1/-1}
+.submit-button{width:100%;justify-content:center;margin-top:15px;border-radius:7px;padding:11px}
+.form-message{font-size:11px;margin:8px 0 0;color:var(--green)}
+
+/* ===== 8. SITE FOOTER ===== */
+.site-footer{display:flex;align-items:center;justify-content:space-between;gap:20px;padding:23px 5.5%;background:#f6f0e5;flex-wrap:wrap}
+.site-footer .brand strong{font-size:24px}
+.site-footer .brand-leaf{font-size:30px}
+.site-footer .handwritten{font-size:13px;margin:0;color:#73715e}
+.socials{display:flex;gap:12px}
+.socials a{display:grid;place-items:center;border:1px solid #c9c9ba;border-radius:50%;width:27px;height:27px;font-weight:700}
+.email{font-size:11px}
+.footer-leaf{font-size:34px;color:var(--green)}
+
+/* ===== 9. RESPONSIVE DESIGN (MEDIA QUERIES) ===== */
+@media(max-width:1050px){
+    .site-header{padding:0 4%;gap:15px}
+    .brand strong{font-size:24px}
+    .main-nav{gap:17px}
+    .header-note{display:none}
+    .section-pad{padding:60px 5%}
+    .about{grid-template-columns:.8fr 1.2fr;gap:28px}
+    .about-benefits{grid-column:1/-1;border-left:0;padding:10px 0 0}
+    .about-note{display:none}
+    .products{grid-template-columns:1fr 1fr}
+    .product-facts{grid-column:1/-1;display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
+    .product-facts article{border-bottom:0}
+    .process {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 25px;
+}
+    .order-section{grid-template-columns:.8fr .8fr 1.5fr}
+    .order-brand{padding:30px 18px}
+    .order-form{padding:18px}
+}
+
+@media(max-width:720px){
+    .site-header{height:67px}
+    .brand strong{font-size:23px}
+    .brand-leaf{font-size:30px}
+    .menu-toggle{display:block;margin-left:auto}
+    .main-nav{display:none;position:absolute;left:0;right:0;top:66px;background:#f6f0e5;padding:12px 6% 20px;box-shadow:0 10px 15px #0000000d;flex-direction:column;align-items:stretch;gap:3px}
+    .main-nav.open{display:flex}
+    .main-nav a{padding:10px 0;border-bottom:1px solid #e4dfd2}
+    .main-nav a:after{display:none}
+    .bag-icon{font-size:24px}
+    .hero{min-height:590px;align-items:flex-end}
+    .hero-photo{background-position:40% center}
+    .hero-shade{background:linear-gradient(0deg,rgba(244,238,226,.98) 0%,rgba(244,238,226,.92) 45%,rgba(244,238,226,.18) 100%)}
+    .hero-content{width:100%;margin:0;padding:210px 7% 28px}
+    .hero h1{font-size:36px}
+    .hero h1 span{font-size:.7em}
+    .hero-copy{font-size:12px}
+    .hero-script{top:8%;right:7%;font-size:17px}
+    .section-pad{padding:48px 6%}
+    .about{grid-template-columns:1fr;gap:25px}
+    .about-image{max-width:310px;width:80%;margin:0 auto}
+    .about-image img{height:220px}
+    .about-copy{text-align:left}
+    .products{grid-template-columns:1fr;gap:25px}
+    .products-intro h2{font-size:32px}
+    .scent-list{gap:2px}
+    .scent-dot{width:38px;height:38px}
+    .scent-image{width:38px;height:38px}
+    .scent b,.scent small{font-size:8px}
+    .product-photo{height:280px}
+    .product-facts{grid-column:auto;grid-template-columns:1fr 1fr;padding:15px}
+    .product-facts article{gap:8px;padding:8px 0}
+    .product-facts article>span{font-size:23px;min-width:25px}
+    .process{gap:20px}
+    
+    .steps>i{display:none}
+    .steps article span{width:48px;height:48px}
+    .steps {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 18px 8px;
+    margin-bottom: 28px;
+}
+
+.steps > i {
+    display: none;
+}
+
+.process-gallery {
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+    gap: 5px;
+}
+
+.process-gallery img {
+    height: 75px;
+}
+    .process-gallery img{height:65px}
+    .order-section{grid-template-columns:1fr}
+    .order-photo{min-height:250px}
+    .order-brand{padding:30px 7%}
+    .order-brand h2{font-size:34px}
+    .mini-values{max-width:360px}
+    .order-form{margin:0 5% 30px;padding:18px}
+    .form-grid{gap:12px}
+    .site-footer{justify-content:center;text-align:center;gap:15px;padding:25px 6%}
+    .site-footer .brand{width:100%;justify-content:center}
+    .site-footer .handwritten{width:100%}
+    .email{width:100%}
+    .footer-leaf{display:none}
+
+    /* Hero Values Responsive */
+    .hero-values {
+        gap: 16px;
+        justify-content: flex-start;
+    }
+    .hero-values > div > :first-child {
+        width: 25px !important;
+        height: 25px !important;
+        margin-bottom: 8px !important;
+    }
+    .hero-values > div:first-child > :first-child {
+        transform: scale(1.3);
+    }
+    .hero-values small {
+        font-size: 9px;
+    }
+
+    /* About Benefits Responsive */
+    .about-benefits {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        padding-left: 0;
+        border-left: none;
+        gap: 0;
+    }
+    .about-benefits article {
+        padding: 0 4px;
+    }
+    .about-benefits .icon-circle {
+        width: 60px;
+        height: 60px;
+        margin-bottom: 10px;
+    }
+    .about-benefits .custom-icon,
+    .about-benefits .recycle-svg,
+    .about-benefits svg {
+        width: 30px !important;
+        height: 30px !important;
+    }
+    .about-benefits .recycle-icon {
+        font-size: 26px !important;
+    }
+    .about-benefits h3 {
+        font-size: 10px;
+        overflow-wrap: anywhere;
+    }
+    .about-benefits p {
+        font-size: 9px;
+        line-height: 1.6;
+    }
+}
+
+@media(max-width:390px){
+    .hero h1{font-size:31px}
+    .hero-values{gap:10px}
+    .hero-values small{font-size:8px}
+    .form-grid{grid-template-columns:1fr}
+    .full-width{grid-column:auto}
+    .product-facts{grid-template-columns:1fr}
+    .process-gallery img{height:54px}
+}
